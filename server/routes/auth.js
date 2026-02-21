@@ -52,7 +52,7 @@ router.post('/signup', async (req, res) => {
 
         if (error) {
             console.error('Supabase insert error:', error);
-            return res.status(500).json({ message: 'Failed to create user' });
+            return res.status(500).json({ message: `DB Error: ${error.message || JSON.stringify(error)}` });
         }
 
         res.status(201).json({
