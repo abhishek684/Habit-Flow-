@@ -1,7 +1,7 @@
 import { useAuth } from '../context/AuthContext';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onClose }) {
     const { user, logout } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
@@ -14,7 +14,7 @@ export default function Sidebar() {
     ];
 
     return (
-        <aside className="sidebar">
+        <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
             <div className="sidebar-header">
                 <div className="sidebar-logo">
                     <span className="icon">🚀</span>
@@ -27,7 +27,10 @@ export default function Sidebar() {
                     <div
                         key={item.path}
                         className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
-                        onClick={() => navigate(item.path)}
+                        onClick={() => {
+                            navigate(item.path);
+                            if (onClose) onClose();
+                        }}
                     >
                         <span className="icon">{item.icon}</span>
                         <span>{item.name}</span>
