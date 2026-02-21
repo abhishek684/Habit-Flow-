@@ -9,7 +9,11 @@ const userRoutes = require('./routes/users');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://habitflowwebapp.netlify.app'],
+    credentials: true,
+    optionsSuccessStatus: 200
+}));
 app.use(express.json());
 
 // Routes
