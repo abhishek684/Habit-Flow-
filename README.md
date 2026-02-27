@@ -30,10 +30,3 @@ https://habitflowwebapp.netlify.app/
 -------------------------------------------------------------------------------------------------------------------------------------
 <img width="1917" height="895" alt="image" src="https://github.com/user-attachments/assets/cfebadc5-9de2-4f8b-934f-f40c1844a361" />
 
-
-
-
-
-## ⚙️ Setup
-npm install  
-npm start
